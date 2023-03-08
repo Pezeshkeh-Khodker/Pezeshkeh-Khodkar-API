@@ -48,14 +48,6 @@ def detect_skin_cancer():
     else:
         return open('./src/pages/error.html', 'r', encoding="utf-8").read()
 
-
-@app.errorhandler(404)
-def not_found_page(e):
-    """Error page 404
-    """
-    return open('./src/pages/error.html', 'r', encoding="utf-8").read()
-
-
 @app.route("/files", methods=["GET"])
 def get_files():
     """The page of sources (fonts, images, ...)
@@ -67,6 +59,12 @@ def get_files():
     except:
         # If the file isn't there, it shows an error page
         return open('./src/pages/error.html', 'r', encoding="utf-8").read()
+
+@app.errorhandler(404)
+def not_found_page(e):
+    """Error page 404
+    """
+    return open('./src/pages/error.html', 'r', encoding="utf-8").read()
 
 
 if __name__ == "__main__":

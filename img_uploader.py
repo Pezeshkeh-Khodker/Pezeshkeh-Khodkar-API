@@ -102,13 +102,12 @@ class ImgUploader:
             False: It has a virus
         """
         return True
-        """
+
         try:
             anti_virus = pyclamd.ClamdAgnostic()
-            if anti_virus.scan_file() is None:
+            if anti_virus.scan_file(self.__img_address) is None:
                 return True
             else:
                 return False
         except:
             return False
-        """
